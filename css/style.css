@@ -252,7 +252,17 @@ p {
     top:0;
     left: 0;
 
+    opacity: 1;
+    visibility:visible;
+    pointer-events: auto;
+
     background-color:rgba(0, 0, 0, 0.2);;
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .modal {
@@ -270,18 +280,20 @@ background: rgba(255, 255, 255, 1);
     position: absolute;
     top: 8px;
     right: 8px;
+    padding: 0;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    border: 1px solid rgba(0, 0, 0, 0.1)
+    border: 1px solid rgba(0, 0, 0, 0.1);
 
     width: 30px;
     height: 30px;
 
     background-color: transparent;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 
@@ -406,6 +418,31 @@ img {
     height: auto;
 
     margin: 0;
+}
+
+.label-img {
+    position: relative;
+    width: 100%;
+}
+
+.label-text {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    padding: 27px;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 16px;
+    font-size: 14px;
+
+    text-align: center;
+
+   
+    
+    color: var(--white-color--);
+    background-color: rgba(47, 48, 58, 0.8);
 }
 
 /* Name */
@@ -731,6 +768,39 @@ address {
 .catalog-link:focus {
     border: 1px solid #EEEEEE;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.catalog-link-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 63px 24px;
+
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--white-color--);
+    
+    
+    overflow: auto;
+
+    transform: translateY(100%);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    
+
+    background-color: rgba(33, 150, 243, 0.9);
+}
+
+.catalog-link:hover .overlay,
+.catalog-link:focus .overlay {
+    transform: translateY(0%);
 }
 
 .catalog-discription {
